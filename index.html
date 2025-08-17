@@ -1,76 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Company landing page" />
-  <meta name="keywords" content="company, services, contact" />
-  <title>Company Landing Page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company — Solusi Digital untuk Bisnis Anda</title>
+  <meta name="description" content="Kami membantu bisnis tumbuh lewat solusi website dan produk digital yang cepat, aman, dan mudah di-scale." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Company — Solusi Digital untuk Bisnis Anda" />
+  <meta property="og:description" content="Website cepat, aman, dan mudah di-scale." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fadhli-texa-coder.github.io/company-website/" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+
+  <link rel="icon" href="assets/favicon.png" />
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <h1 class="logo">Company</h1>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="Beranda">Company</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Buka menu">
+        ☰
+      </button>
+      <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Menu utama">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang</a>
+        <a href="#services">Layanan</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="hero" class="hero container">
-    <h2>Welcome to Our Company</h2>
-    <p>Your success is our mission.</p>
-    <a href="#contact" class="cta">Get in Touch</a>
-  </section>
-
-  <section id="about" class="about container">
-    <h2>About Us</h2>
-    <p>We are committed to delivering the best services to our clients.</p>
-  </section>
-
-  <section id="services" class="services container">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Service One</h3>
-        <p>Short description of service one.</p>
+  <main id="main">
+    <!-- Hero -->
+    <section id="home" class="section hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Solusi Digital untuk Bisnis Anda</h1>
+          <p>Kami membangun website cepat, aman, dan siap scale untuk mendukung pertumbuhan bisnis.</p>
+          <div class="actions">
+            <a class="btn primary" href="#contact">Konsultasi Gratis</a>
+            <a class="btn ghost" href="#services">Lihat Layanan</a>
+          </div>
+        </div>
+        <img class="hero-img" src="assets/illustration.webp" alt="Ilustrasi solusi digital" loading="lazy" width="520" height="360" />
       </div>
-      <div class="service-card">
-        <h3>Service Two</h3>
-        <p>Short description of service two.</p>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container grid-2">
+        <div>
+          <h2>Tentang Kami</h2>
+          <p>Kami tim kecil dengan pengalaman 10+ tahun membangun website dan sistem modern menggunakan praktik terbaik industri.</p>
+          <ul class="checklist">
+            <li>Performa tinggi (Lighthouse A)</li>
+            <li>Keamanan & CI/CD GitHub Actions</li>
+            <li>Dukungan & dokumentasi rapi</li>
+          </ul>
+        </div>
+        <div class="card neutral">
+          <h3>Kenapa Memilih Kami?</h3>
+          <p>Fokus pada hasil dan kemudahan maintenance—tanpa kompleksitas yang tidak perlu.</p>
+        </div>
       </div>
-      <div class="service-card">
-        <h3>Service Three</h3>
-        <p>Short description of service three.</p>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section muted">
+      <div class="container">
+        <h2>Layanan</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Website Company</h3>
+            <p>Landing page cepat dan SEO-friendly dengan GitHub Pages.</p>
+          </article>
+          <article class="card">
+            <h3>Integrasi CI/CD</h3>
+            <p>Pipeline build, test, dan deploy otomatis via GitHub Actions.</p>
+          </article>
+          <article class="card">
+            <h3>Audit & Optimasi</h3>
+            <p>Audit Lighthouse, security, dan reliabilitas dengan rekomendasi praktis.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="contact container">
-    <h2>Contact Us</h2>
-    <form>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Hubungi Kami</h2>
+        <form class="contact" name="contact" netlify>
+          <label>Nama
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>Email
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>Pesan
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Kirim Pesan</button>
+        </form>
+        <p class="small">Atau email langsung ke <a href="mailto:hello@example.com">hello@example.com</a></p>
+      </div>
+    </section>
+  </main>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit" class="cta">Send Message</button>
-    </form>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Company. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Company. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <a href="#privacy">Privasi</a>
+        <a href="#terms">Ketentuan</a>
+      </nav>
     </div>
   </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
