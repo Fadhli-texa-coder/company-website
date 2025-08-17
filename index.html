@@ -3,33 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Company — Solusi Digital untuk Bisnis Anda</title>
-  <meta name="description" content="Kami membantu bisnis tumbuh lewat solusi website dan produk digital yang cepat, aman, dan mudah di-scale." />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Company — Solusi Digital untuk Bisnis Anda" />
-  <meta property="og:description" content="Website cepat, aman, dan mudah di-scale." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://fadhli-texa-coder.github.io/company-website/" />
-  <meta property="og:image" content="assets/og-image.jpg" />
-
-  <link rel="icon" href="assets/favicon.png" />
+  <title>Company — Solusi Digital</title>
+  <meta name="description" content="Website cepat, aman, dan siap scale untuk bisnis Anda." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Lewati ke konten utama</a>
 
-  <header class="site-header" role="banner">
+  <!-- Header / Nav -->
+  <header class="header">
     <div class="container nav">
-      <a class="brand" href="#" aria-label="Beranda">Company</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Buka menu">
-        ☰
+      <a class="brand" href="#">Company</a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-      <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Menu utama">
+
+      <nav id="nav" class="nav-menu" aria-label="Menu utama">
         <a href="#home">Home</a>
         <a href="#about">Tentang</a>
         <a href="#services">Layanan</a>
-        <a href="#contact">Kontak</a>
+        <a class="btn small" href="#contact">Kontak</a>
       </nav>
     </div>
   </header>
@@ -37,16 +31,19 @@
   <main id="main">
     <!-- Hero -->
     <section id="home" class="section hero">
-      <div class="container hero-inner">
+      <div class="container hero-grid">
         <div class="hero-text">
           <h1>Solusi Digital untuk Bisnis Anda</h1>
-          <p>Kami membangun website cepat, aman, dan siap scale untuk mendukung pertumbuhan bisnis.</p>
+          <p>Kami membangun website cepat, aman, dan siap scale untuk pertumbuhan bisnis Anda.</p>
           <div class="actions">
-            <a class="btn primary" href="#contact">Konsultasi Gratis</a>
+            <a class="btn" href="#contact">Konsultasi Gratis</a>
             <a class="btn ghost" href="#services">Lihat Layanan</a>
           </div>
         </div>
-        <img class="hero-img" src="assets/illustration.webp" alt="Ilustrasi solusi digital" loading="lazy" width="520" height="360" />
+        <div class="hero-art" aria-hidden="true">
+          <!-- ilustrasi sederhana pakai CSS saja -->
+          <div class="blob"></div>
+        </div>
       </div>
     </section>
 
@@ -55,16 +52,16 @@
       <div class="container grid-2">
         <div>
           <h2>Tentang Kami</h2>
-          <p>Kami tim kecil dengan pengalaman 10+ tahun membangun website dan sistem modern menggunakan praktik terbaik industri.</p>
-          <ul class="checklist">
-            <li>Performa tinggi (Lighthouse A)</li>
-            <li>Keamanan & CI/CD GitHub Actions</li>
+          <p>Tim dengan pengalaman 10+ tahun membangun website modern dengan praktik terbaik industri.</p>
+          <ul class="list">
+            <li>Performa tinggi & SEO-ready</li>
+            <li>CI/CD GitHub Actions</li>
             <li>Dukungan & dokumentasi rapi</li>
           </ul>
         </div>
-        <div class="card neutral">
-          <h3>Kenapa Memilih Kami?</h3>
-          <p>Fokus pada hasil dan kemudahan maintenance—tanpa kompleksitas yang tidak perlu.</p>
+        <div class="card">
+          <h3>Nilai Utama</h3>
+          <p>Fokus pada hasil, kemudahan maintenance, dan keamanan tanpa kompleksitas berlebih.</p>
         </div>
       </div>
     </section>
@@ -76,15 +73,15 @@
         <div class="cards">
           <article class="card">
             <h3>Website Company</h3>
-            <p>Landing page cepat dan SEO-friendly dengan GitHub Pages.</p>
+            <p>Landing page cepat & stabil di GitHub Pages.</p>
           </article>
           <article class="card">
             <h3>Integrasi CI/CD</h3>
-            <p>Pipeline build, test, dan deploy otomatis via GitHub Actions.</p>
+            <p>Pipeline build, test, dan deploy otomatis.</p>
           </article>
           <article class="card">
             <h3>Audit & Optimasi</h3>
-            <p>Audit Lighthouse, security, dan reliabilitas dengan rekomendasi praktis.</p>
+            <p>Audit Lighthouse, security, dan performa.</p>
           </article>
         </div>
       </div>
@@ -93,8 +90,8 @@
     <!-- Contact -->
     <section id="contact" class="section">
       <div class="container">
-        <h2>Hubungi Kami</h2>
-        <form class="contact" name="contact" netlify>
+        <h2>Kontak</h2>
+        <form class="form" name="contact" netlify>
           <label>Nama
             <input type="text" name="name" required autocomplete="name" />
           </label>
@@ -104,23 +101,19 @@
           <label>Pesan
             <textarea name="message" rows="4" required></textarea>
           </label>
-          <button class="btn primary" type="submit">Kirim Pesan</button>
+          <button class="btn" type="submit">Kirim</button>
         </form>
-        <p class="small">Atau email langsung ke <a href="mailto:hello@example.com">hello@example.com</a></p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Company. All rights reserved.</p>
-      <nav aria-label="Footer">
-        <a href="#privacy">Privasi</a>
-        <a href="#terms">Ketentuan</a>
-      </nav>
+      <p>© <span id="year"></span> Company.</p>
+      <a href="#home">Kembali ke atas ↑</a>
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
