@@ -1,91 +1,74 @@
-/* Base styles */
-* {
-  box-sizing: border-box;
+/* Reset ringan + variabel tema */
+:root{
+  --bg:#ffffff; --text:#111827; --muted:#f3f4f6; --primary:#2563eb;
+  --border:#e5e7eb; --shadow:0 1px 2px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b1020; --text:#e5e7eb; --muted:#10172a; --primary:#3b82f6; --border:#1f2a44; }
+}
+*{ box-sizing:border-box } html{ scroll-behavior:smooth }
+body{
+  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+}
+img{ max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none }
+.container{ width:min(1100px,92%); margin-inline:auto }
+.section{ padding:64px 0 }
+.muted{ background:var(--muted) }
+.small{ font-size:.9rem; opacity:.8 }
+
+/* Aksesibilitas */
+.skip-link{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{ position:static; width:auto; height:auto; padding:.5rem 1rem; background:var(--primary); color:#fff }
+
+/* Header / Nav */
+.site-header{ position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--border); z-index:10 }
+.nav{ display:flex; align-items:center; gap:16px; padding:12px 0 }
+.brand{ font-weight:700; letter-spacing:.2px }
+.nav-menu{ margin-left:auto; display:flex; gap:20px; align-items:center }
+.nav-toggle{ display:none; margin-left:auto; font-size:1.25rem; background:none; border:0; cursor:pointer }
+
+/* Hero */
+.hero{ display:grid; place-items:center; min-height:64vh }
+.hero-inner{ display:grid; gap:32px; align-items:center; grid-template-columns:1.1fr .9fr }
+.hero-text h1{ margin:.2rem 0 1rem }
+.actions{ display:flex; gap:12px; margin-top:12px }
+.btn{ display:inline-block; padding:.75rem 1rem; border-radius:8px; border:1px solid var(--border); box-shadow:var(--shadow); }
+.btn.primary{ background:var(--primary); color:#fff; border-color:transparent }
+.btn.ghost{ background:transparent }
+
+/* Cards / Grid */
+.cards{ display:grid; gap:16px; grid-template-columns:repeat(3,1fr) }
+.card{ padding:18px; border:1px solid var(--border); border-radius:12px; background:var(--bg); box-shadow:var(--shadow) }
+.card.neutral{ background:var(--muted) }
+.grid-2{ display:grid; gap:20px; grid-template-columns:1fr 1fr }
+.checklist{ padding-left:1em }
+.checklist li{ margin:.25rem 0 }
+
+/* Contact */
+.contact{
+  display:grid; gap:12px; max-width:560px;
+}
+input, textarea{
+  width:100%; padding:.7rem .8rem; border:1px solid var(--border);
+  border-radius:8px; background:transparent; color:inherit;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
+/* Footer */
+.site-footer{ border-top:1px solid var(--border); padding:28px 0; background:var(--muted) }
+.footer-inner{ display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* Responsif */
+@media (max-width:900px){
+  .hero-inner{ grid-template-columns:1fr }
+  .cards{ grid-template-columns:1fr 1fr }
 }
-
-header {
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 1000;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-}
-
-.hero {
-  text-align: center;
-  padding: 4rem 0;
-}
-
-.cta {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  margin-top: 1rem;
-}
-
-.about,
-.services,
-.contact {
-  padding: 4rem 0;
-}
-
-.services-grid {
-  display: grid;
-  gap: 1rem;
-}
-
-.service-card {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.footer {
-  background: #f4f4f4;
-  text-align: center;
-  padding: 1rem 0;
-}
-
-/* Media Queries */
-@media (min-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+@media (max-width:640px){
+  .nav-toggle{ display:block }
+  .nav-menu{ display:none; }
+  .nav-menu.open{ display:flex; flex-direction:column; gap:12px; position:absolute; right:4%; top:56px; padding:12px; background:var(--bg); border:1px solid var(--border); border-radius:12px; }
+  .cards{ grid-template-columns:1fr }
 }
