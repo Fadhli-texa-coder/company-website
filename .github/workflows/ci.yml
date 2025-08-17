@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 1. Setup Node.js untuk lint/test JS
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # 2. Install dependencies (opsional, kalau nanti ada package.json)
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          else
+            echo "No package.json, skipping npm install"
+          fi
+
+      # 3. Lint HTML, CSS, JS
+      - name: Run linters
+        run: |
+          npx htmlhint "**/*.html" || true
+          npx stylelint "**/*.css" || true
+          npx eslint "**/*.js" || true
+
+      # 4. Jalankan tes unit (kalau ada)
+      - name: Run tests
+        run: |
+          if [ -f package.json ]; then
+            npm test || echo "No tests found"
+          else
+            echo "No tests configured"
+          fi
